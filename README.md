@@ -6,6 +6,7 @@ On a machine with `docker` already installed:
 
 1. `brew install kind kubernetes-cli helm`
 2. `kind create cluster --config kind-1worker-config.yaml`
+3. `kubectl config use-context kind-kind`
 3. `helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts`
 4. `helm install my-otel-demo open-telemetry/opentelemetry-demo`
 5. `helm install --values values.agent.yaml agent open-telemetry/opentelemetry-collector`
