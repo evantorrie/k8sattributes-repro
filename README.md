@@ -2,7 +2,9 @@
 
 ### Using opentelemetry collector 0.54.0
 
-1. `brew install docker kind kubenetes-cli helm`
+On a machine with `docker` already installed:
+
+1. `brew install kind kubernetes-cli helm`
 2. `kind create cluster --config kind-1worker-config.yaml`
 3. `helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts`
 4. `helm install my-otel-demo open-telemetry/opentelemetry-demo`
