@@ -15,6 +15,8 @@ On a machine with `docker` already installed:
 9. `kubectl port-forward svc/my-otel-demo-frontend 8080:8080`
 10. `kubectl logs -f deployment/gateway-opentelemetry-collector`
 
+* Note: You may need to wait a while before step 9 to ensure all of the my-otel-demo deployments have succeeded.
+
 * Go to your browser and access `http://localhost:8080`
 
 * Watch for the traces coming in, and note that the debug logs from
