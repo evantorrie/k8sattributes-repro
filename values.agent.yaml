@@ -1,0 +1,29 @@
+mode: daemonset
+image:
+  tag: "0.59.0"
+presets:
+  hostMetrics:
+    enabled: true
+hostNetwork: true
+dnsPolicy: ClusterFirstWithHostNet
+
+config:
+  exporters:
+    logging: {}
+    otlp:
+      endpoint: "gateway-opentelemetry-collector:4317"
+      tls:
+        insecure: true
+  processors:
+    k8sattributes:
+      passthrough: true
+  service:
+    pipelines:
+      traces:
+        exporters:
+          - otlp
+          - logging
+        processors:
+          - memory_limiter
+          - k8sattributes
+          - batch
